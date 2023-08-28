@@ -6,6 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          def manager?
-          user_type == 'manager'
+          user_type == 'Manager'
         end
 end

@@ -1,7 +1,9 @@
 class UserPolicy < ApplicationPolicy
   def manager?
-    user.user_type == 'Manager'
+   user.user_type == 'Manager'
+
   end
+
 
   def developer?
     user.user_type == 'Developer'
