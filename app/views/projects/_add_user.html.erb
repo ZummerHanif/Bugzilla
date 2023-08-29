@@ -1,0 +1,5 @@
+
+<%= form_for :user_project, url: add_user_project_path(@project), method: :post, class: 'add-user-form' do |f| %>
+  <%= f.collection_select :user_id, User.where.not(id: @project.assigned_users).where.not(id: current_user).where.not(user_type: 'Manager'), :id, :name, prompt: 'Select user',class: 'select-user' %>
+  <%= f.submit 'Add User', class: 'btn btn-primary Add-User-Btn' %>
+<% end %>

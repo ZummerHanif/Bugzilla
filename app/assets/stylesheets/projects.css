@@ -114,3 +114,30 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+
+.Add-User-Btn
+{
+ margin-top: 20px;
+ margin-left:40%;
+}
+
+.developer {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.qa {
+  color:  #007bff;
+  font-weight: bold;
+}
+
+.select-user input[type="text"],select
+{
+  margin-top: 20px;
+}
+
+.remove-user
+{
+font-size: 12px;
+margin-left: 20px;
+}

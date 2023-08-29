@@ -2,24 +2,42 @@
   <h1>Welcome <%= current_user.name %>!</h1>
 
   <% if user_signed_in? %>
-    <% if policy(current_user).manager? %>
+
       <h2>Projects</h2>
       <% @projects.each do |project| %>
         <div class="project">
           <div class="project-name">
-            <%= project.name %>
+           <%= link_to project.name, project_path(project) %>
           </div>
           <div class="project-actions">
-            <%= link_to 'Edit', edit_project_path(project), class: 'links' %>
-            <%= link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }, class: 'links links-danger' %>
-            <%= link_to 'Create Bug', new_project_bug_path(project), class: 'links' %>
+           <% if current_user.manager? %>
+             <%= link_to 'Edit', edit_project_path(project), class: 'links' %>
+             <%= link_to 'Delete', project_path(project), method: :delete, data: { confirm: 'Are you sure?' }, class: 'links links-danger' %>
+           <% end %>
+           <%= link_to 'Bugs', project_bugs_path(project), class: 'links' %>
           </div>
         </div>
       <% end %>
+    <% if current_user.manager? %>
+
       <div>
         <%= link_to 'Create Project', new_project_path, class: 'links' %>
       </div>
+
     <% end %>
+  <% if current_user.user_type == 'Qa' %>
+    <h2>Your Assigned Projects:</h2>
+    <% current_user.assigned_projects.each do |assigned_project| %>
+      <div class="project">
+        <div class="project-name">
+          <%= link_to assigned_project.name, project_path(assigned_project) %>
+        </div>
+        <div class="project-actions">
+          <%= link_to 'Bugs', project_bugs_path(assigned_project), class: 'links' %>
+        </div>
+      </div>
+    <% end %>
+<% end %>
     <div class="logout-link">
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'links links-danger' %>
     </div>

@@ -1,0 +1,109 @@
+/* Add this CSS to your stylesheet or style tag */
+
+/* Styling for the bug form title */
+.bug-form-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Styling for the form container */
+.bug-form {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Styling for form fields and labels */
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Styling for the submit button */
+.actions {
+  margin-top: 15px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Styling for error messages */
+#error_explanation {
+  color: red;
+  margin-bottom: 15px;
+}
+
+#error_explanation ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#error_explanation li {
+  margin-bottom: 5px;
+}
+
+.create-bug-btn  {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.New-Bug-button
+{
+  margin-left: 35%;
+}
+.create-bug-btn input[type="submit"] , .New-Bug-button
+{
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 7px 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.create-bug-btn input[type="submit"]:hover ,.New-Bug-button:hover {
+  background-color: #0056b3;
+}
+
+.back-button{
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}

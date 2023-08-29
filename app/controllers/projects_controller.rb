@@ -2,14 +2,20 @@ class ProjectsController < ApplicationController
   #before:action authorize @project
 
   def index
-    @projects = current_user.projects
-
-    # if policy(current_user).manager?
-     # render 'index.html.erb'
-    # else
-    #end
+    if current_user.qa?
+      @projects = Project.all
+      @assigned_projects=current_user.assigned_projects
+    elsif current_user.developer?
+      @projects = current_user.assigned_projects
+    else
+      @projects = current_user.projects
+    end
   end
 
+  def show
+    @project = Project.find(params[:id])
+    @users = User.all # For the add user dropdown
+  end
   def new
      @project = Project.new
      authorize @project
@@ -30,6 +36,8 @@ class ProjectsController < ApplicationController
       render :new
     end
   end
+
+
 
   def edit
     @project = Project.find(params[:id])
@@ -59,6 +67,29 @@ class ProjectsController < ApplicationController
     else
       redirect_to projects_path, alert: 'Failed to delete the project.'
     end
+  end
+
+
+  def add_user
+    @project = Project.find(params[:id])
+
+    if params[:user_project][:user_id].blank?
+      redirect_to @project, alert: 'Please select a user to add.'
+      return
+    end
+    user = User.find(params[:user_project][:user_id])
+
+    @project.assigned_users << user unless @project.assigned_users.include?(user)
+    redirect_to @project, notice: 'User added to project.'
+  end
+
+  def remove_user
+    @project = Project.find(params[:id])
+    user = User.find(params[:user_id])
+
+
+    @project.assigned_users.delete(user)
+    redirect_to @project, notice: 'User removed from project.'
   end
 
 

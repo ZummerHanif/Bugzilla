@@ -18,14 +18,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.label :bug_type %>
+    <%= form.select :bug_type, Bug.bug_types.keys.map { |bug_type| [bug_type.humanize, bug_type] } %>
   </div>
 
   <div class="field">
-    <%= form.label :bug_type %>
-    <%= form.text_field :bug_type %>
+    <%= form.label :status %>
+    <%= form.select :status, Bug.statuses.keys.map { |status| [status.humanize, status] } %>
   </div>
+
+
 
   <div class="field">
     <%= form.label :deadline %>
@@ -42,7 +44,12 @@
     <%= form.file_field :screenshot %>
   </div>
 
-  <div class="actions">
+  <div class="actions create-bug-btn">
     <%= form.submit %>
   </div>
+
+  <div>
+    <%= link_to 'Back', :back, class: 'back-button' %>
+  </div>
+
 <% end %>

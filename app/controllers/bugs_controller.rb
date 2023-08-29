@@ -1,6 +1,7 @@
 class BugsController < ApplicationController
   before_action :set_project, only: [:index, :new, :create]
   before_action :set_bug, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_qa, only: [:new, :create]
 
   def index
     @bugs = @project.bugs.includes(:project)
@@ -20,7 +21,20 @@ class BugsController < ApplicationController
     end
   end
 
-  # Other actions: show, edit, update, destroy
+
+
+  def assign
+    @bug = Bug.find(params[:id])
+    @project = @bug.project
+    if  current_user.developer?
+      @bug.update(assignee: current_user)
+      redirect_to project_bugs_path( @project), notice: 'Bug assigned to you.'
+    else
+      redirect_to project_bugs_path( @project), alert: 'Bug could not be assigned.'
+    end
+  end
+
+
 
   private
 
@@ -30,6 +44,12 @@ class BugsController < ApplicationController
 
   def set_bug
     @bug = Bug.find(params[:id])
+  end
+
+  def authorize_qa
+    unless current_user.qa?
+      redirect_to project_bugs_path(@project), alert: 'Only QA users can create bugs.'
+    end
   end
 
   def bug_params

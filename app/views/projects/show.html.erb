@@ -1,0 +1,36 @@
+<h1> Add User to <%= @project.name %> </h1>
+
+<% if policy(current_user).manager? %>
+  <h3>Developers in this project:</h3>
+  <% @project.assigned_users.where(user_type: 'Developer').each do |developer| %>
+    <div class="developer"><%= developer.name %> (Developer)
+
+     <%= link_to 'Remove user',
+                         remove_user_project_path(@project, user_id: developer.id),
+                         method: :delete,
+                         data: { confirm: 'Are you sure you want to remove this user?' },
+                         class: 'links links-danger remove-user' %>
+    </div>
+
+  <% end %>
+
+  <h3>QAs in this project:</h3>
+  <% @project.assigned_users.where(user_type: 'Qa').each do |qa| %>
+    <div class="qa"><%= qa.name %> (QA)
+     <%= link_to 'Remove user',
+                         remove_user_project_path(@project, user_id: qa.id),
+                         method: :delete,
+                         data: { confirm: 'Are you sure you want to remove this user?' },
+                         class: 'links links-danger remove-user' %>
+
+    </div>
+
+   <% end %>
+
+
+  <%= render partial: 'add_user', locals: { project: @project } %>
+
+  <div>
+    <%= link_to 'Back', :back, class: 'back-button' %>
+  </div>
+<% end %>
