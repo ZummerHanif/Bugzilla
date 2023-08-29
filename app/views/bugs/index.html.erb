@@ -1,9 +1,13 @@
-<%= simple_form_for([@project, @bug]) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :status, collection: Bug.statuses.keys %>
-  <%= f.input :type, collection: Bug.types.keys %>
-  <%= f.input :deadline %>
-  <%= f.input :description %>
-  <%= f.input :screenshot, as: :file %>
-  <%= f.button :submit %>
+<h1>Bugs for <%= @project.name %></h1>
+
+<% @bugs.each do |bug| %>
+  <div class="bug">
+    <h3><%= bug.title %></h3>
+    <p>Status: <%= bug.status %></p>
+    <p>Deadline: <%= bug.deadline %></p>
+    <p>Description: <%= bug.description %></p>
+    <p><%= image_tag bug.screenshot.url if bug.screenshot? %></p>
+  </div>
 <% end %>
+
+<%= link_to 'New Bug', new_project_bug_path(@project) %>

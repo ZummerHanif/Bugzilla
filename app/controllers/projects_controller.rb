@@ -1,18 +1,18 @@
 class ProjectsController < ApplicationController
+  #before:action authorize @project
 
   def index
     @projects = current_user.projects
 
-    if policy(current_user).manager?
-      render 'index.html.erb'
-    else
-
-    end
+    # if policy(current_user).manager?
+     # render 'index.html.erb'
+    # else
+    #end
   end
 
   def new
-    @project = Project.new
-    authorize @project
+     @project = Project.new
+     authorize @project
   end
 
 

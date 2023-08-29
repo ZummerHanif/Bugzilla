@@ -16,7 +16,9 @@
           <%= f.input :remember_me, as: :boolean %>
 
         <% end %>
-        <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'forgot-password-link' %>
+        <div class="forgot-pwd-div">
+          <%= link_to "Forgot your password?", new_password_path(resource_name), class: 'forgot-password-link' %>
+        </div>
       </div>
     </div>
 

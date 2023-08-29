@@ -1,0 +1,48 @@
+<h1>Create a new Bug for <%= @project.name %></h1>
+
+<%= form_with(model: [@project, @bug], local: true) do |form| %>
+  <% if @bug.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bug.errors.count, 'error') %> prohibited this bug from being saved:</h2>
+      <ul>
+        <% @bug.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bug_type %>
+    <%= form.text_field :bug_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :deadline %>
+    <%= form.date_field :deadline %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :screenshot %>
+    <%= form.file_field :screenshot %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

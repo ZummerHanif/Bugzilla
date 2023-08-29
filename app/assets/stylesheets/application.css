@@ -190,3 +190,11 @@
 
 
 
+.forgot-pwd-div
+{
+  display: flex;
+  font-size: x-small;
+  justify-content: right;
+  margin-top: -12px;
+
+}

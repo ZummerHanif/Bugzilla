@@ -28,6 +28,10 @@ gem 'simple_form'
 gem 'pundit'
 
 
+gem 'carrierwave'
+
+
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -57,6 +61,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
+
   gem 'selenium-webdriver'
 end
 
