@@ -8,12 +8,26 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.3'
+
+#Sqlite compatible
 gem 'sqlite3', '< 1.4'
 
 gem 'loofah', '2.4.0'
+
 gem 'nokogiri', '1.8.5'
 
+
+#Authenatication Login/Signup
 gem 'devise'
+
+#gem for simple forms
+gem 'simple_form'
+
+
+#pundit gem for roles authorization
+gem 'pundit'
+
+
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

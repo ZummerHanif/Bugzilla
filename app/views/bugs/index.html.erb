@@ -1,0 +1,9 @@
+<%= simple_form_for([@project, @bug]) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :status, collection: Bug.statuses.keys %>
+  <%= f.input :type, collection: Bug.types.keys %>
+  <%= f.input :deadline %>
+  <%= f.input :description %>
+  <%= f.input :screenshot, as: :file %>
+  <%= f.button :submit %>
+<% end %>

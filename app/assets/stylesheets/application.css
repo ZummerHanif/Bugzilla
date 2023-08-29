@@ -12,4 +12,181 @@
  *
  *= require_tree .
  *= require_self
- */
+
+ /* custom.css */
+
+/* Error Message */
+.alert-warning {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+/* Success Message */
+.alert-info {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+/* Common Styles for Alerts */
+.alert {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+
+
+
+/* application.css */
+
+/* Custom form styles */
+/* application.css */
+
+/* Custom form styles */
+/* Add this CSS to your application.css or custom stylesheet */
+
+.custom-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+.input-row {
+  margin-bottom: 15px;
+}
+
+.input-field,
+.select-input {
+  width: 90%;;
+  padding: 12px;
+  border: 1px solid #e1e4e8;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.select-input
+{
+  width: 97%;
+}
+
+.input-field:focus,
+.select-input:focus {
+  outline: none;
+  border-color: #0366d6;
+}
+
+.password-input {
+  border: 2px solid #e1e4e8;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.password-hint {
+  font-size: 14px;
+  color: #888;
+  margin-top: 5px;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0366d6;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.links {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.links a {
+  color: #0366d6;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.links a:hover {
+  color: #0056b3;
+}
+
+
+/* Add this CSS to your application.css or custom stylesheet */
+
+.custom-link {
+  display: block;
+  margin-bottom: 10px;
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.custom-link:hover {
+  color: #0056b3;
+}
+
+
+.forgot-password-link {
+
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+  margin-left: 15rem;
+}
+
+.forgot-password-link:hover {
+  color: #0056b3;
+}
+
+
+.signup-link {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+.signup-link:hover {
+  color: #0056b3;
+}
+
+
+

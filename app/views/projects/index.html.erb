@@ -1,0 +1,9 @@
+<h1> Projects </h1>
+
+<% if user_signed_in? %>
+  <% if policy(current_user).manager? %>
+  <%= link_to 'Create Project', new_project_path %>
+  <h5>Create a project </h5>
+  <% end %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<% end %>
