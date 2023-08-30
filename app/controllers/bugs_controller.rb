@@ -1,7 +1,7 @@
 class BugsController < ApplicationController
   before_action :set_project, only: [:index, :new, :create]
   before_action :set_bug, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_qa, only: [:new, :create]
+  before_action :authorize_qa, only: [:new, :create,:update_status]
 
   def index
     @bugs = @project.bugs.includes(:project)
@@ -20,6 +20,26 @@ class BugsController < ApplicationController
       render :new
     end
   end
+
+  def update
+    @project = Project.find(params[:project_id])
+    @bug = @project.bugs.find(params[:id])
+
+    if current_user.developer?
+      if params[:bug][:status]==('resolved')
+        if @bug.update(status: 'resolved')
+          redirect_to project_bugs_path(@project), notice: 'Bug status updated successfully.'
+        else
+          redirect_to project_bugs_path(@project), alert: 'Bug status could not be updated.'
+        end
+      else
+        redirect_to project_bugs_path(@project), alert: 'Invalid status update. Please enter "resolved".'
+      end
+    end
+  end
+
+
+
 
 
 

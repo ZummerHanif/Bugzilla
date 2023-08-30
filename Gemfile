@@ -27,8 +27,12 @@ gem 'simple_form'
 #pundit gem for roles authorization
 gem 'pundit'
 
-
+#gem for file uploads
 gem 'carrierwave'
+
+
+#JQuery for javascript
+gem 'jquery-rails'
 
 
 
