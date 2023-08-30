@@ -20,4 +20,12 @@ class ProjectPolicy < ApplicationPolicy
   def add_developer_qa?
     user.manager? && record.user == user
   end
+
+  def add_user?
+    user.manager? && record.user == user
+  end
+
+  def remove_user?
+    user.manager? && record.user == user
+  end
 end

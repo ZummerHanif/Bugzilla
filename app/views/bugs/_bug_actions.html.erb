@@ -1,0 +1,17 @@
+<div class="bug-actions">
+  <% if current_user.developer? %>
+    <% if bug.assignee == current_user %>
+      <% if ["New", "new", "Started", "started"].include?(bug.status) %>
+        <%= form_for bug, url: project_bug_path(@project, bug), method: :patch do |f| %>
+          <div class="form-group">
+            <%= f.label :status, 'Update Status', class: 'control-label' %>
+            <%= f.text_field :status, class: 'form-control', placeholder: 'Enter "resolved or Completed"' %>
+          </div>
+          <%= f.submit 'Update Status', class: 'btn btn-primary' %>
+        <% end %>
+      <% end %>
+    <% elsif bug.assignee.blank? %>
+      <%= link_to 'Assign to Me', assign_project_bug_path(@project, bug), method: :post, class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
+</div>

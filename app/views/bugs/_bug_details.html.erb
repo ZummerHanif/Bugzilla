@@ -1,0 +1,13 @@
+<div class="bug-details">
+  <h2><%= bug.title %></h2>
+  <p>Status: <%= bug.status %></p>
+  <p>Type: <%= bug.bug_type %></p>
+  <p>Assigned to: <%= bug.assignee ? bug.assignee.name : 'Unassigned' %></p>
+  <p>Deadline: <%= bug.deadline %></p>
+  <p>Created_by: <%= bug.creator.name %></p>
+
+  <% if bug.description? %>
+    <p>Description: <%= bug.description %></p>
+  <% end %>
+  <p><%= image_tag bug.screenshot.url if bug.screenshot? %></p>
+</div>

@@ -1,6 +1,5 @@
-<h1> Add User to <%= @project.name %> </h1>
-
 <% if policy(current_user).manager? %>
+<h1> Add User to <%= @project.name %> </h1>
   <h3>Developers in this project:</h3>
   <% @project.assigned_users.where(user_type: 'Developer').each do |developer| %>
     <div class="developer"><%= developer.name %> (Developer)

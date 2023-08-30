@@ -1,0 +1,9 @@
+<div class="project">
+  <div class="project-name">
+    <%= project.name %>
+  </div>
+  <div class="project-actions">
+    <%= render partial: 'project_actions', locals: { project: project } %>
+    <%= link_to 'Bugs', project_bugs_path(project), class: 'links' %>
+  </div>
+</div>

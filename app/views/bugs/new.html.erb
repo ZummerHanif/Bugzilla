@@ -17,17 +17,17 @@
     <%= form.text_field :title %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :bug_type %>
-    <%= form.select :bug_type, Bug.bug_types.keys.map { |bug_type| [bug_type.humanize, bug_type] } %>
+    <%= form.select :bug_type, [['Feature', 'feature'], ['Bug', 'bug']],
+      { prompt: '-- Choose Bug Type --' }, id: 'bug_type_select' ,
+      onchange: "populateBugStatus('bug_type_select', 'bug_status_select')" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :status %>
-    <%= form.select :status, Bug.statuses.keys.map { |status| [status.humanize, status] } %>
+    <%= form.select :status, {}, {}, id: 'bug_status_select' %>
   </div>
-
-
 
   <div class="field">
     <%= form.label :deadline %>
@@ -51,5 +51,4 @@
   <div>
     <%= link_to 'Back', :back, class: 'back-button' %>
   </div>
-
 <% end %>

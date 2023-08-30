@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20230829214335) do
+ActiveRecord::Schema.define(version: 20230830220148) do
 
   create_table "bugs", force: :cascade do |t|
     t.string "title"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 20230829214335) do
     t.text "description"
     t.string "screenshot"
     t.integer "assignee_id"
+    t.integer "creator_id"
     t.index ["assignee_id"], name: "index_bugs_on_assignee_id"
+    t.index ["creator_id"], name: "index_bugs_on_creator_id"
     t.index ["project_id"], name: "index_bugs_on_project_id"
     t.index ["title"], name: "index_bugs_on_title", unique: true
   end

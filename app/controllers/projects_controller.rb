@@ -1,5 +1,7 @@
 class ProjectsController < ApplicationController
-  #before:action authorize @project
+
+  before_action :authorize_manager, except: [:index]
+
 
   def index
     if current_user.qa?
@@ -14,8 +16,9 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @users = User.all # For the add user dropdown
+    @users = User.all
   end
+
   def new
      @project = Project.new
      authorize @project
@@ -79,6 +82,7 @@ class ProjectsController < ApplicationController
     end
     user = User.find(params[:user_project][:user_id])
 
+
     @project.assigned_users << user unless @project.assigned_users.include?(user)
     redirect_to @project, notice: 'User added to project.'
   end
@@ -97,5 +101,12 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name)
+  end
+
+  def authorize_manager
+    unless current_user.manager?
+      flash[:alert] = "You are not authorized to access this page."
+      redirect_to root_path
+    end
   end
 end

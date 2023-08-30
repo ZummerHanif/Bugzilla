@@ -102,6 +102,7 @@ textarea {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 30px;
 }
 
 .back-button:hover {
