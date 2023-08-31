@@ -35,8 +35,8 @@ To run the test suite, use the following command:
 ```sh
 rails test
 Contributing
-**
-If you'd like to contribute to this project, please follow these steps:**
+
+If you'd like to contribute to this project, please follow these steps:
 
     Fork the repository.
     Create a new branch for your feature or bug fix: git checkout -b your-feature-branch
