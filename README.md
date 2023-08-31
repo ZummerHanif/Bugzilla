@@ -34,3 +34,12 @@ This application is built using Ruby on Rails. The recommended Ruby version is 2
 To run the test suite, use the following command:
 ```sh
 rails test
+Contributing
+**
+If you'd like to contribute to this project, please follow these steps:**
+
+    Fork the repository.
+    Create a new branch for your feature or bug fix: git checkout -b your-feature-branch
+    Make your changes and commit them.
+    Push your changes to your forked repository.
+    Create a pull request to the main branch of the original repository.
