@@ -1,24 +1,36 @@
-# README
+# Bugzilla Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This README provides information about the Bugzilla application, including setup, usage, and deployment instructions.
 
-Things you may want to cover:
+## Ruby Version
 
-* Ruby version
+This application is built using Ruby on Rails. The recommended Ruby version is [your_ruby_version_here]. You can check the Ruby version specified in the `Gemfile`.
 
-* System dependencies
+## System Dependencies
 
-* Configuration
+- Ruby
+- Ruby on Rails
+- [Any other dependencies specific to your application]
 
-* Database creation
+## Configuration
 
-* Database initialization
+1. Clone the repository: `git clone [repository_url]`
+2. Install required gems: `bundle install`
+3. Configure your database in `config/database.yml`
 
-* How to run the test suite
+## Database Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Create the database: `rails db:create`
+2. Run database migrations: `rails db:migrate`
+3. Optionally, seed the database with initial data: `rails db:seed`
 
-* Deployment instructions
+## Running the Application
 
-* ...
+1. Start the Rails server: `rails server`
+2. Access the application in your browser at `http://localhost:3000`
+
+## Running Tests
+
+To run the test suite, use the following command:
+```sh
+rails test
