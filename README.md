@@ -4,13 +4,13 @@ This README provides information about the Bugzilla application, including setup
 
 ## Ruby Version
 
-This application is built using Ruby on Rails. The recommended Ruby version is [your_ruby_version_here]. You can check the Ruby version specified in the `Gemfile`.
+This application is built using Ruby on Rails. The recommended Ruby version is 2.3.3. You can check the Ruby version specified in the `Gemfile`.
 
 ## System Dependencies
 
 - Ruby
 - Ruby on Rails
-- [Any other dependencies specific to your application]
+
 
 ## Configuration
 
